@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for p, m in posts.items %}
+  <li>
+    <strong> {{ p }} :</strong>&nbsp;<span> {{ m }} </span>
+  </li>
+  {% endfor %}
+  {% for k, v in prop.items %}
+  <li>
+    <strong>{{ k }} :</strong>&nbsp;<span> {{ v }} </span>
+  </li>
+  {% endfor %}
+  {% for i, j in detail.items %}
+  <p>
+  {{ i }} : {{ j }}
+  </p>
+  {%endfor%}
+
+  {% for l, m in pictures.items %}
+  <label id="label_images_1" for="images_1" class="">
+    <img class="stdImg" src="/media/{{ m }}">
+  </label>
+  {{ m }}
+  {% endfor %}
+
+  <div class="post-entry">
+    <h2>{{ post.title }} </h2>
+    {%for name, value in post_stats.get_fields %}
+    <p>{{ name }} => {{ value }} </p>
+    {% endfor %}
+  </div>
+
+  <a href="{% url 'post_edit' post.id %}">Edit Post</a>
+{% endblock content %}

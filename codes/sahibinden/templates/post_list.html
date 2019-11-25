@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+  <head>
+    <title>Enes's Blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/sahibinden.css' %}">
+  </head>
+  <body>
+    <div>
+      <h1><a href="/">Sahibinden İlanlar</a></p>
+    </div>
+    <div>
+      {% for post in posts %}
+        <div class="nav-left">
+          <p>published: {{ post.record_date_time }}</p>
+          <h1><a href="">{{ post.city }}, {{post.region }}</a></h1>
+        </div>
+        <div class="nav-right">
+          <a href="{% url "post_new" %}">+ New Post</a>
+        </div>
+      {% endfor %}
+      {% for detail in details %}
+      {% endfor %}
+    </div>
+  </body>
+</html>
